@@ -1,0 +1,8 @@
+const http = require("http");
+
+const serverHandler = (request, response) => {
+    response.writeHead(200, {"Content-Type": "text/plain"});
+    response.end("Hello, Reverse Proxy!");
+};
+
+const server = http.createServer(serverHandler);

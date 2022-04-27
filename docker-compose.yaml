@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  node:
+    image: node:17.0.0-alpine
+    user: node
+    entrypoint: node
+    command: src/index.js
+    tty: true
+    stdin_open: true
+    working_dir: /home/node
+    volumes:
+      - .:/home/node
+
+  nginx:
+    image: nginx:1.21.6
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
